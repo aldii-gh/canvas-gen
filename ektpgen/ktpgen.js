@@ -1,10 +1,14 @@
+/**
+BUILD BY OWNER YUSHINO-MD, RENAME IS OK AND DO NOT CHANGE THIS WATERMARK IF YOU RESPECT ME
+github:Aldii-gh 
+**/
 const { createCanvas, loadImage, GlobalFonts } = await import("@napi-rs/canvas");
 
-export async function ektpGen({ userImageBuffer, NIK = "1234567890123456", NAMA = "NAMA LENGKAP", TTL = "KOTA, 01-01-2000", GENDER = "LAKI-LAKI", DUSUN = "ALAMAT/DUSUN", RT_RW = "001/002", DESA = "NAMA DESA", KECAMATAN = "NAMA KECAMATAN", AGAMA = "ISLAM", STATUS = "BELUM KAWIN", PEKERJAAN = "PELAJAR/MAHASISWA" }) {
+export async function ektpGen({ userImageBuffer, NIK = "1234567890123456", NAMA = "NAMA LENGKAP", TTL = "KOTA, 01-01-2000", GENDER = "LAKI-LAKI", DUSUN = "ALAMAT/DUSUN", RT_RW = "001/002", DESA = "NAMA DESA", KECAMATAN = "NAMA KECAMATAN", AGAMA = "ISLAM", STATUS = "BELUM KAWIN", PEKERJAAN = "PELAJAR/MAHASISWA", PROVINSI = "SUMATERA UTARA", KABUPATEN = "DELI SERDANG"}) {
   try { 
     if (!userImageBuffer) throw new Error("Buffer gambar tidak ditemukan!");
 
-    const base = "https://raw.githubusercontent.com/aldii-gh/canvas-gen/main";
+    const base = "https://raw.githubusercontent.com/aldii-gh/canvas-gen/main/ektpgen";
     const [t, a, o] = await Promise.all([
       fetch(`${base}/ektp.png`),
       fetch(`${base}/fonts/ArielNb.ttf`),
@@ -20,7 +24,7 @@ export async function ektpGen({ userImageBuffer, NIK = "1234567890123456", NAMA 
     const canvas = createCanvas(template.width, template.height);
     const ayam = canvas.getContext("2d");
 
-    // Langsung load dari parameter userImageBuffer
+    // Directly load from userImageBuffer parameter
     const img = await loadImage(Buffer.from(userImageBuffer));
 
     // Inner shadow function
@@ -40,8 +44,8 @@ export async function ektpGen({ userImageBuffer, NIK = "1234567890123456", NAMA 
     }
 
     // GENERATE
-    const provinsi = "PROVINSI SUMATERA UTARA";
-    const kabupaten = "KABUPATEN DELI SERDANG";
+    const provinsi = PROVINSI
+    const kabupaten = KABUPATEN
 
     ayam.drawImage(template, 0, 0);
     drawInnerShadow(ayam, img, 2262, 666, 726, 967, 150);
