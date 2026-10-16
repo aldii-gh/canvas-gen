@@ -18,7 +18,7 @@ try {
   ayam.drawImage(template, 0, 0);
   ayam.font = '130px "OCRACustom"';
   ayam.fillText("1234567890123456", 996, 715); //nik
-  ayam.font = '500px "ArialCustom"';
+  ayam.font = '100px "ArialCustom"';
   ayam.fillText("AYAM CUKURUKUK", 996, 846); //Nama
   
   const buffer = await canvas.encode("png");
