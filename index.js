@@ -3,7 +3,7 @@ try {
   const base = "https://raw.githubusercontent.com/aldii-gh/canvas-gen/main";
   const [t, a, o] = await Promise.all([
     fetch(`${base}/ektp.png`),
-    fetch(`${base}/fonts/ArialB.ttf`),
+    fetch(`${base}/fonts/Arial.ttf`),
     fetch(`${base}/fonts/OCR%20A%20Extended.ttf`)
   ]);
   if (!t.ok || !a.ok || !o.ok) throw new Error("Gagal mengunduh template/font");
@@ -18,7 +18,7 @@ try {
   ayam.drawImage(template, 0, 0);
   ayam.font = '130px "OCRACustom"';
   ayam.fillText("1234567890123456", 996, 715); //nik
-  ayam.font = '100px "ArialBoldCustom"';
+  ayam.font = '80px "ArialBoldCustom"';
   ayam.fillText("AYAM CUKURUKUK", 996, 846); //Nama
   
   const buffer = await canvas.encode("png");
